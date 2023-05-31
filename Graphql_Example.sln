@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{4
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{25EE2D3A-5408-4C9F-B638-A9C674D6BAD5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestCurd", "TestCurd\TestCurd.csproj", "{A1893626-E702-4935-A0CE-456AE925C60D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "TestCurd\Test.csproj", "{A1893626-E702-4935-A0CE-456AE925C60D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
