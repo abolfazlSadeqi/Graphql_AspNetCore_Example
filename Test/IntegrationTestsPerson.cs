@@ -26,12 +26,12 @@ using Newtonsoft.Json.Linq;
 
 namespace DefaultAPI.UnitTesting
 {
-    public class IntegrationTests : IClassFixture<WebApplicationFactory<API.Startup>>
+    public class IntegrationTestsPerson : IClassFixture<WebApplicationFactory<API.Startup>>
     {
 
         public readonly GraphQLHttpClient _graphQLHttpClient;
 
-        public IntegrationTests(WebApplicationFactory<API.Startup> factory)
+        public IntegrationTestsPerson(WebApplicationFactory<API.Startup> factory)
         {
             if (_graphQLHttpClient == null)
             {
@@ -44,41 +44,6 @@ namespace DefaultAPI.UnitTesting
 
             return new GraphQLHttpClient(Setting.UrlGraphQl, new SystemTextJsonSerializer());
         }
-
-        [Fact]
-        public async Task CreatePersonStatus()
-        {
-
-            //Arrange
-            string LastName = "test3";
-            var _GraphQLRequest = new GraphQLRequest
-            {
-                Query = @"mutation CreatePS($personstatus:personstatusInput!){
-                                                  createPersonStatus(personstatus:$personstatus)
-                                                  {
-                                                iD,value
-                                                  }
-                                                }",
-                OperationName = "CreatePS",
-                Variables = new
-                {
-                    personstatus = new { value = LastName }
-                }
-            };
-
-
-            // Assert
-
-            var response = await _graphQLHttpClient
-                          .SendQueryAsync<data_create>(_GraphQLRequest);
-
-            // Assert
-            Assert.NotNull(response.Data);
-            Assert.True(response.Data.createPersonStatus.iD == 1);
-
-
-        }
-
 
         [Fact]
         public async Task GetPersonById()
